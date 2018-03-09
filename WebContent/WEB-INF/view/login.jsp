@@ -12,7 +12,7 @@
 	<a href="<%=request.getContextPath() %>/login">LOGIN</a> | <a href="<%=request.getContextPath() %>/join">JOIN</a>
 	</div>
 	<hr/>
-		<form action="login.jsp" method="post">
+	<form action="login.jsp" method="post">
 	<p>
 		<input type="text"  name="id"  placeholder="아이디"  autocomplete="off"/>
 	</p>
