@@ -30,7 +30,7 @@
 	
 	<div style="margin-top: 20px;">
 		<button type="submit" style="width: 100%; height: 30px;" id="click"  >가 입
-			신 청</button>
+			</button>
 	</div>
 	</form>
 </body>
