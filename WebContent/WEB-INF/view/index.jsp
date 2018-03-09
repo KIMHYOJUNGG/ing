@@ -5,9 +5,13 @@
 <title>Spring - managed by GIT</title>
 </head>
 <body>
-	${ment }
-		
-
-
+	<div align="center">
+	<h2>${ment }</h2>
+	<hr/>
+	<div align="right">
+	<a href="<%=request.getContextPath() %>/login">LOGIN</a> | <a href="<%=request.getContextPath() %>/join">JOIN</a>
+	</div>
+	</div>
+	<hr/>
 </body>
 </html>
