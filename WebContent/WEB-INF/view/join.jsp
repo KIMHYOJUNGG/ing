@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
 <title>Insert title here</title>
@@ -12,6 +13,9 @@
 	<a href="${pageContext.request.contextPath }/login">LOGIN</a> | <a href="${pageContext.request.contextPath }/join">JOIN</a>
 	</div>
 	<hr/>
+	<c:if test="${!empty err }">
+		<p style="color:red">${err }</p>
+	</c:if>
 	<form action = "${pageContext.request.contextPath }/join" method="post" 
 	style="width: 330px; text-align: left;">
 	<div style="margin-top: 20px;">
@@ -20,7 +24,7 @@
 		<a id="idp"></a>
 	</div>
 	<div style="margin-top: 20px;"> 
-		<span>PASS(*)</span><br /> <input type="password" name="pass" id="pass" onblur="check2()"
+		<span>PASS(*)</span><br /> <input type="pass" name="pass" id="pass" onblur="check2()"
 			placeholder="비밀번호">
 	</div>
 	<div style="margin-top: 20px;">

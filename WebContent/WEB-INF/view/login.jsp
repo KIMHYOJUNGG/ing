@@ -14,13 +14,13 @@
 	<hr/>
 	<form action="${pageContext.request.contextPath }/login" method="post">
 	<p>
-		<input type="text"  name="id"  placeholder="아이디"  autocomplete="off"/>
+		<input type="text"  name="id"  placeholder="아이디"  autocomplete="off"  pattern="[a-zA-Z]+" value="${id}"/>
 	</p>
 	<p>
-		<input type="text"  name="email"  placeholder="이메일"  autocomplete="off"/>
+		<input type="text"  name="email"  placeholder="이메일"  autocomplete="off"  value="${email }"/>
 	</p>
 	<p>
-		<input type="password" name="pass"  placeholder="비밀번호"/>
+		<input type="password" name="pass"  placeholder="비밀번호"  value="${pass }" />
 	</p>	
 		<button type="submit" id="login" >Login</button>
 	</form>	

@@ -49,7 +49,9 @@ public class JoinController {
 	
 	if(rst) {
 		System.out.println("id" + param.get("id"));
-		session.setAttribute("logon", param.get("id"));
+		session.setAttribute("id", param.get("id"));
+		session.setAttribute("email", param.get("email"));
+		session.setAttribute("pass", param.get("pass"));
 		return "redirect:/login";
 	}else {
 		model.addAttribute("err","문제발생함");
