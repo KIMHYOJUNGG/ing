@@ -9,10 +9,10 @@
 	<h2>${ment }</h2>
 	<hr/>
 	<div align="right">
-	<a href="<%=request.getContextPath() %>/login">LOGIN</a> | <a href="<%=request.getContextPath() %>/join">JOIN</a>
+	<a href="${pageContext.request.contextPath }/login">LOGIN</a> | <a href="${pageContext.request.contextPath }/join">JOIN</a>
 	</div>
 	<hr/>
-	<form action = "/registerP.jsp" method="post" 
+	<form action = "${pageContext.request.contextPath }/join" method="post" 
 	style="width: 330px; text-align: left;">
 	<div style="margin-top: 20px;">
 		<span>ID(*)</span> <span></span><br /> <input type="text" name="id"
@@ -24,12 +24,12 @@
 			placeholder="비밀번호">
 	</div>
 	<div style="margin-top: 20px;">
-		<span>NICKNAME(*)</span><br /> <input type="text" name="nick" id="nick" onblur="check3()"
-			placeholder="닉네임" autocomplete="off">
+		<span>EMAIL(*)</span><br /> <input type="text" name="email" id="email" onblur="check3()"
+			placeholder="이메일" autocomplete="off">
 	</div>
 	
 	<div style="margin-top: 20px;">
-		<button type="submit" style="width: 100%; height: 30px;" id="click" disabled >가 입
+		<button type="submit" style="width: 100%; height: 30px;" id="click"  >가 입
 			신 청</button>
 	</div>
 	</form>
