@@ -7,6 +7,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="join">
 		insert into member values(#{id},#{email},#{pass},0)
 	</insert>
+	
+	<select id="lvcheck" resultType="hashmap">
+	 	select * from member where id = #{id}
+	</select>
+	<select id="logincheck" resultType="hashmap">
+	 	select * from member where id = #{id} and password = #{pass}
+	</select>
+	
+	<update id="lvUpdate">
+		update member set lv = 1 where id = #{id}
+	</update>
+
+
 
 </mapper>
 

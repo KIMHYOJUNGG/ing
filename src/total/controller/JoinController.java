@@ -1,7 +1,8 @@
 package total.controller;
 
-import java.util.Map;
+import java.util.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import total.service.AddService;
+import total.service.CheckService;
 import total.service.GreetService;
 
 @Controller
@@ -24,10 +26,11 @@ public class JoinController {
 	GreetService greetService;
 	@Autowired
 	AddService addService;
-	
+	@Autowired
+	CheckService checkService;
 	
 	@RequestMapping(path="/login" )
-	public String loginHandle(Model model) {
+	public String greetHandle(Model model) {
 		
 	model.addAttribute("ment",greetService.make());
 		
@@ -42,13 +45,25 @@ public class JoinController {
 	
 	}
 	
+	@RequestMapping(path="/logincheck")
+	public String loginHandle(@RequestParam Map map,HttpSession session) {
+	if(greetService.login(map)==null) {
+		return "login";
+	}else {
+		session.setAttribute("logon", map.get("id"));
+		return "index";
+	}
+	
+	
+	
+	}
+	
 	@RequestMapping(path="/join",method=RequestMethod.POST)
 	public String joinPostHandle(Model model, HttpSession session, @RequestParam Map<String,String> param) {
 	
 	boolean rst = addService.addMember(param);
 	
 	if(rst) {
-		System.out.println("id" + param.get("id"));
 		session.setAttribute("logon", param.get("id"));
 		return "redirect:/login";
 	}else {
@@ -57,9 +72,33 @@ public class JoinController {
 		return "join";
 	}
 	
-	
-	
 	}
 	
+	@RequestMapping("/chat")
+	public String chatHandle(Model model,HttpSession session) {
+		
+		if((String)session.getAttribute("logon")!=null) {
+			Map id = checkService.idcheck((String) session.getAttribute("logon"));
+		if(id.get("LV").toString().equals("1")) {
+			return "chat";
+		}else {
+			return "certify";
+		}
+		}else {
+			return "login";
+		}
+		
+	}
 	
+	@RequestMapping("/auth")
+	public String authHandle(Model model,HttpSession session) {
+		
+		boolean id = addService.lvUpdate((String)session.getAttribute("logon"));
+		if(id==true) {
+			return "chat";
+		}else {
+			return "certify";
+		}
+		
+	}
 }

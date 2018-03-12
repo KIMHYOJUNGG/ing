@@ -6,10 +6,11 @@
 </head>
 <body>
 	<div align="center">
-	<h2>${ment }</h2>
+	<h2><a href="${pageContext.request.contextPath }/alpha/index">WELLCOME</a> </h2>
 	<hr/>
 	<div align="right">
 	<a href="${pageContext.request.contextPath }/login">LOGIN</a> | <a href="${pageContext.request.contextPath }/join">JOIN</a>
+	| <a href="${pageContext.request.contextPath }/chat">CHAT</a>
 	</div>
 	<hr/>
 	<form action = "${pageContext.request.contextPath }/join" method="post" 
@@ -29,7 +30,7 @@
 	</div>
 	
 	<div style="margin-top: 20px;">
-		<button type="submit" style="width: 100%; height: 30px;" id="click"  >가 입
+		<button type="submit" style="width: 100%; height: 30px;" id="click"  >가 입 신 청
 			</button>
 	</div>
 	</form>
