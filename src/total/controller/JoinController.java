@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.interceptor.MethodMapTransactionAttributeSource;
 import org.springframework.ui.Model;
@@ -35,7 +36,6 @@ public class JoinController {
 
 		return "login";
 	}
-
 	@RequestMapping(path = "/join", method = RequestMethod.GET)
 	public String joinGetHandle(Model model) {
 		model.addAttribute("ment", greetService.make());

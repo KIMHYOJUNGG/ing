@@ -21,7 +21,6 @@ input, select {
 	| <a href="${pageContext.request.contextPath }/chat">CHAT</a>
 	</div>
 	<hr/>
-	
 
 <div style="font-size: 17pt; margin-top: 50px;">
 	채팅방 개설<br /> <span style="font-size: 11pt;">개설하고자 하는 채팅방을 설정한 후

@@ -15,10 +15,7 @@
 	<hr/>
 	<form action="${pageContext.request.contextPath }/logincheck" method="post">
 	<p>
-		<input type="text"  name="id"  placeholder="아이디"  autocomplete="off"  pattern="[a-zA-Z]+" value="${id}"/>
-	</p>
-	<p>
-		<input type="text"  name="email"  placeholder="이메일"  autocomplete="off"  value="${email }"/>
+		<input type="text"  name="id"  placeholder="아이디"  autocomplete="off"  pattern="[a-zA-Z]+" value="${idmail}"/>
 	</p>
 	<p>
 		<input type="password" name="pass"  placeholder="비밀번호"  value="${pass }" />
