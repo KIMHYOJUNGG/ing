@@ -18,5 +18,12 @@ public class AddService {
 		return add==1;
 	}
 	
+	public boolean lvUpdate(String string)	{
+		int add = template.update("join.lvUpdate",string);
+		return add==1;
+	}
+
+
+	
 	
 }

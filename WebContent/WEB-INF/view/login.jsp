@@ -10,9 +10,10 @@
 	<hr/>
 	<div align="right">
 	<a href="${pageContext.request.contextPath }/login">LOGIN</a> | <a href="${pageContext.request.contextPath }/join">JOIN</a>
+	| <a href="${pageContext.request.contextPath }/chat">CHAT</a>
 	</div>
 	<hr/>
-	<form action="${pageContext.request.contextPath }/login" method="post">
+	<form action="${pageContext.request.contextPath }/logincheck" method="post">
 	<p>
 		<input type="text"  name="id"  placeholder="아이디"  autocomplete="off"  pattern="[a-zA-Z]+" value="${id}"/>
 	</p>

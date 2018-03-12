@@ -7,20 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class GreetService {
+public class CheckService {
+	
 	@Autowired
 	SqlSessionTemplate template;
 	
-	public String make() {
-		String[] ments = "어서오세요,WELCOME".split(",");
+	public Map  idcheck(String id) {
 		
-		return ments[(int)(Math.random()*ments.length)];
+		return template.selectOne("join.lvcheck",id);
 	}
-	
-	public Map login(Map map) {
-		
-		return template.selectOne("join.logincheck",map); 
-	}
-	
 	
 }
