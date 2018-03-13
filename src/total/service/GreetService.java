@@ -19,7 +19,7 @@ public class GreetService {
 	
 	public Map login(Map map) {
 		
-		return template.selectOne("join.getByIdmailAndPassword",map); 
+		return template.selectOne("join.logincheck",map); 
 	}
 	
 	

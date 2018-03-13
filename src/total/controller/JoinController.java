@@ -14,6 +14,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.socket.WebSocketSession;
 
 import total.service.AddService;
 import total.service.CheckService;
@@ -45,11 +46,15 @@ public class JoinController {
 	}
 
 	@RequestMapping(path = "/logincheck")
-	public String loginHandle(@RequestParam Map map, HttpSession session) {
+	public String loginHandle(@RequestParam Map map, HttpSession session,WebSocketSession websession) {
 		if (greetService.login(map) == null) {
 			return "login";
 		} else {
 			session.setAttribute("logon", map.get("id"));
+			String sid = session.getId();
+			System.out.println("sid"+sid);
+			String key = (String) websession.getAttributes().get("HTTP.SESSION.ID");	
+			
 			return "index";
 		}
 
@@ -64,6 +69,7 @@ public class JoinController {
 		session.setAttribute("email", param.get("email"));
 		session.setAttribute("pass", param.get("pass"));
 		session.setAttribute("logon", param.get("id"));
+	
 		return "redirect:/login";
 	}else {
 		model.addAttribute("err","문제발생함");

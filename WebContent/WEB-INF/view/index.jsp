@@ -36,7 +36,7 @@
 <script>
 	//${pageContext.request.serverName}
 	
-	var ws = new WebSocket("ws://${pageContext.request.serverName}/chap05/handle");
+	var ws = new WebSocket("ws://${pageContext.request.serverName}${pageContext.request.contextPath }/alert");
 	// 연결이 됬음때..
 	ws.onopen = function(){
 		console.log("opened");
