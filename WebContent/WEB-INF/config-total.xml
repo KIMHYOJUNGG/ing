@@ -29,7 +29,12 @@
 		<websocket:mapping handler="wsController" path="/handle"/>
 	</websocket:handlers>
 	-->
+	
 	<bean class="total.model.WebSocketMap" id="sessions"></bean>
+	<bean class="total.model.LogonMembers" id="logonMembers"></bean>
+	
+	
+	
 	<websocket:handlers>
 		<websocket:mapping handler="alertController" path="/alert"/>  
 		<websocket:handshake-interceptors>

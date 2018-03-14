@@ -20,6 +20,7 @@ import org.springframework.web.socket.WebSocketSession;
 
 import com.google.gson.Gson;
 
+import total.model.LogonMembers;
 import total.model.WebSocketMap;
 import total.service.AddService;
 import total.service.CheckService;
@@ -36,19 +37,19 @@ public class JoinController {
 	CheckService checkService;
 	@Autowired
 	WebSocketMap sessions;
+	@Autowired
+	LogonMembers logonMembers;
+	
 
 	@RequestMapping(path = "/login")
 	public String greetHandle(Model model) {
-
 		model.addAttribute("ment", greetService.make());
-
 		return "login";
 	}
 
 	@RequestMapping(path = "/join", method = RequestMethod.GET)
 	public String joinGetHandle(Model model) {
 		model.addAttribute("ment", greetService.make());
-
 		return "join";
 
 	}
@@ -59,10 +60,16 @@ public class JoinController {
 			return "login";
 		} else {
 			session.setAttribute("logon", map.get("id"));
-
 			return "index";
 		}
 
+	}
+	
+	@RequestMapping(path = "/logout")
+	public String logoutHandle(@RequestParam Map map, HttpSession session) {
+			session.removeAttribute((String) session.getAttribute("logon"));
+			return "index";
+		
 	}
 
 	@RequestMapping(path = "/join", method = RequestMethod.POST)

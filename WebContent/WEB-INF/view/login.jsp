@@ -9,7 +9,7 @@
 	<h2>${ment }</h2>
 	<hr/>
 	<div align="right">
-	<a href="${pageContext.request.contextPath }/login">LOGIN</a> | <a href="${pageContext.request.contextPath }/join">JOIN</a>
+	<a href="${pageContext.request.contextPath }/login">LOGIN</a> | <a href="${pageContext.request.contextPath }/logout">LOGOUT</a> | <a href="${pageContext.request.contextPath }/join">JOIN</a>
 	| <a href="${pageContext.request.contextPath }/chat">CHAT</a>
 	</div>
 	<hr/>
