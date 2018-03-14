@@ -25,10 +25,14 @@
 				href="${pageContext.request.contextPath }/chat">CHAT</a>
 		</div>
 	<hr />
-	<div class="alert alert-info">
+	<div class="alert alert-info ">
 			<b>현재접속자수:<span id="cnt"></span></b> / 
 			<strong>서버알림</strong><span id="info">-</span>
 	</div>
+	  <div class="alert alert-warning  alert-dismissible" id="warn" style="display: none" >
+	  <a href="javascript:location.reload();" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>경고!</strong> 다른 윈도우 혹은 탭에서 상태가 변경되었습니다.
+ 	 </div>
 	</div>
 	
 </body>
@@ -48,6 +52,7 @@
 		var obj = JSON.parse(resp.data);
 		$("#cnt").html(obj.cnt);  // 접속자수 
 		$("#info").html(obj.info);  // 누가 open하고 누가 close했는지
+		$("#warn").show(obj.warn);
 	
 	}
 	// 연결이 끊길때

@@ -4,21 +4,27 @@ import java.util.*;
 
 import javax.annotation.PostConstruct;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
+import total.model.WebSocketMap;
+
 @Controller("alertController")
 public class AlertController  extends TextWebSocketHandler{
 
 	// 웹소켓 커넥션이 열릴때, 세션을 키로 해서 묶어서 관리를 하려고 함
-	Map<String, List<WebSocketSession>> sessions;
+	@Autowired
+	WebSocketMap sessions;
 	
+	/*
 	@PostConstruct
 	public void init()	{
 		sessions = new HashMap<>();
 	}
+	*/
 	
 	@Override
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception {
