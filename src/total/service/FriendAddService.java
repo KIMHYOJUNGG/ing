@@ -16,13 +16,20 @@ public class FriendAddService {
 		return template.selectList("logon.member");
 	}
 	
-	public List<Map> friendAccept() {
-		return template.selectList("logon.accept");
+	public boolean friendAccept() {
+		return template.update("logon.accept")==1;
 	}
 	
 	public List<Map> friend() {
-		return template.selectList("logon.accept");
+		return template.selectList("logon.frend");
 	}
 	
+	public boolean friendApply() {
+		return template.insert("logon.apply")==1;
+	}
+	
+	public boolean friendRefuse() {
+		return template.delete("logon.refuse")==1;
+	}
 	
 }

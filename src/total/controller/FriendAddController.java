@@ -25,13 +25,19 @@ public class FriendAddController {
 	
 	@RequestMapping("accept")
 	public String acceptHandle(Model model) {
-		List<Map> accept = friendAddService.friendAdd();
+		boolean accept = friendAddService.friendAccept();
 		model.addAttribute("accept", accept);
 		return "friendList";
 		
 	}
 	
-	
+	@RequestMapping("insert")
+	public String insertHandle(Model model) {
+		boolean accept = friendAddService.friendApply();
+		model.addAttribute("accept", accept);
+		return "friendList";
+		
+	}
 	
 	
 }
