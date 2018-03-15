@@ -1,5 +1,7 @@
 package total.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,11 +17,14 @@ public class AlphaController {
 	GreetService greetService;
 	
 	@RequestMapping({"/index","/"})
-	public String alphaHendle(Model model) {
+	public String alphaHendle(Model model, HttpSession session) {
+		if(session.getAttribute("logon")==null) {
 		model.addAttribute("ment",greetService.make());
-		
-		return "index";
+		return "t_index";
+	}else {
+		model.addAttribute("main", "/index.jsp");
+		return "t_el";
 	}
 	
-	
+	}
 }

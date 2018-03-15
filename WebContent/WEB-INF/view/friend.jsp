@@ -32,5 +32,6 @@
 	<c:forEach items="${list }" var="l" >
 		<p> ${l.ID } <button>친구신청</button></p> 
 	</c:forEach>
+	</div>
 </body>
 </html>

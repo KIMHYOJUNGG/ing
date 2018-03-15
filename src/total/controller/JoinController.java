@@ -60,7 +60,7 @@ public class JoinController {
 			return "login";
 		} else {
 			session.setAttribute("logon", map.get("id"));
-			return "index";
+			return "t_index";
 		}
 
 	}
@@ -68,7 +68,7 @@ public class JoinController {
 	@RequestMapping(path = "/logout")
 	public String logoutHandle(@RequestParam Map map, HttpSession session) {
 			session.removeAttribute((String) session.getAttribute("logon"));
-			return "index";
+			return "t_index";
 		
 	}
 

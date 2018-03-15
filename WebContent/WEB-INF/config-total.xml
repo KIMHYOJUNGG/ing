@@ -46,10 +46,24 @@
 	
 	
 	
-	<!-- ViewResolver -->
+	<!-- ViewResolver (순서대로 우선순위임,order로 순서정할수있음)-->
+	<!-- TilesView -->
+	<bean class="org.springframework.web.servlet.view.tiles3.TilesViewResolver">
+	<property name="order" value="1"/>
+	</bean>
+	<bean class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<property name="definitions">
+			<array>
+				<value>/WEB-INF/tiles/*-tiles.xml</value>
+			</array>
+		</property>
+	</bean>
+		
+	
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/view/"/>
 		<property name="suffix" value=".jsp"/>
+		
 	</bean>
 	
 	<!-- 	
